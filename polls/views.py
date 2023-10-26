@@ -43,7 +43,7 @@ from .models import Choice, Question
 #         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
 
 class IndexView(generic.ListView):
-    template_name = "pollc/index.html"
+    template_name = "polls/index.html"
     context_object_name = "latest_question_list"
 
     def get_queryset(self):
