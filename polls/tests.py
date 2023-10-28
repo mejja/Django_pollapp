@@ -5,7 +5,7 @@ from django.urls import reverse
 from .models import Question
 
 # Create your tests here.
-def create_question(question_text, days)
+def create_question(question_text, days):
     """
     Create a question with the given `question_text` and published the given number of `days`offset 
     to now(negative for questions in the past, positive fir questions that have yet to be published).
@@ -21,7 +21,7 @@ class QuestionIndexViewTessts(TestCase):
         response =self.client.get(reverse("polls:index"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No polls are available.")
-        self.assertQuerySetEqual(response.context["latest_question_list"], []])
+        self.assertQuerySetEqual(response.context["latest_question_list"], [])
     
     def test_past_question(self):
         """
