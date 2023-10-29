@@ -22,7 +22,7 @@ class QuestionIndexViewTessts(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No polls are available.")
         self.assertQuerySetEqual(response.context["latest_question_list"], [])
-    
+  
     def test_past_question(self):
         """
         Questions with a pub_date in the past are displayed on the index page.
@@ -40,7 +40,7 @@ class QuestionIndexViewTessts(TestCase):
         create_question(question_text="Future question.", days=30)
         response = self.client.get(reverse("polls:index"))
         self.assertContains(response, "No polls are available.")
-        self.assertQuerySetEqual(response.context["latest_queston_list"], [])
+        self.assertQuerySetEqual(response.context["latest_question_list"], [])
 
     def test_future_question_and_past_question(self):
         """"
@@ -54,13 +54,13 @@ class QuestionIndexViewTessts(TestCase):
             [question],
         )
 
-    def test_twop_past_questions(self):
+    def test_two_past_questions(self):
         """
         The questions index page may be display multiple questions.
         """
         question1 = create_question(question_text="Past question 1.", days=-30)
         question2 = create_question(question_text="past question 2.", days=-5)
-        response =self.client.get(reverse("polls:index"))
+        response = self.client.get(reverse("polls:index"))
         self.assertQuerySetEqual(
             response.context["latest_question_list"]
             [question2, question1],
@@ -86,7 +86,7 @@ class QuestionDetailViewTests(TestCase):
         url = reverse("polls:detail", args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
-        
+ 
 class QuestionModelTests(TestCase):
     def test_was_published_recently_with_future_question(self):
         """
