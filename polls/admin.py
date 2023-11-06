@@ -8,6 +8,7 @@ class ChoiceInline(admin.TabularInline):
     extra = 3
 
 class QuestionAdmin(admin.ModelAdmin):
+    save_on_top = False
     fieldsets = [
         (None, {"fields": ["question_text"]}),
         ("date information", {"fields": ["pub_date"]}),
