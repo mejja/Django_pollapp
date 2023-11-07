@@ -10,7 +10,7 @@ class ChoiceInline(admin.TabularInline):
 class QuestionAdmin(admin.ModelAdmin):
     save_on_top = False
     fieldsets = [
-        (None, {"fields": ["question_text"]}),
+        ("Question Information", {"fields": ["question_text"]}),
         ("date information", {"fields": ["pub_date"]}),
     ]
     list_display = ["question_text", "pub_date", "was_published_recently"]
