@@ -5,6 +5,7 @@ from .models import Question, Choice
 # Register your models here
 class ChoiceInline(admin.TabularInline):
     model = Choice
+    #This increase the default choice appearing per question
     extra = 3
 
 class QuestionAdmin(admin.ModelAdmin):
