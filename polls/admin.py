@@ -8,6 +8,7 @@ class ChoiceInline(admin.TabularInline):
     extra = 3
 
 class QuestionAdmin(admin.ModelAdmin):
+    #when True the save button appear on top
     save_on_top = False
     fieldsets = [
         ("Question Information", {"fields": ["question_text"]}),
