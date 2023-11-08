@@ -10,6 +10,7 @@ class ChoiceInline(admin.TabularInline):
 class QuestionAdmin(admin.ModelAdmin):
     #when True the save button appear on top
     save_on_top = False
+    #Fieldset declaration.
     fieldsets = [
         ("Question Information", {"fields": ["question_text"]}),
         ("date information", {"fields": ["pub_date"]}),
