@@ -6,7 +6,7 @@ from .models import Question, Choice
 class ChoiceInline(admin.TabularInline):
     model = Choice
     #This increase the default choice appearing per question
-    extra = 3
+    extra = 4
 
 class QuestionAdmin(admin.ModelAdmin):
     #when True the save button appear on top
